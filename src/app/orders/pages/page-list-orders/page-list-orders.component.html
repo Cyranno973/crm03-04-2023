@@ -12,7 +12,7 @@
         <button>Editer</button>
       </td>
       <td> {{item.typePresta}}</td>
-      <td> {{item.client}}</td>
+      <td> {{item.client }}</td>
       <td> {{item.nbJours}}</td>
       <td> {{item.tjmHt | currency:'EUR'}}</td>
       <td> {{item.tjmHt | total: item.nbJours | currency:'EUR'}} </td>
@@ -37,3 +37,4 @@
   route="/orders/add"
   styleBtn="myClass"
 ></app-btn>
+<h1 *ngIf="!collection">Loading....</h1>

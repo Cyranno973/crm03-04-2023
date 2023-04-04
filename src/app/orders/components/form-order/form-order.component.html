@@ -1,0 +1,43 @@
+<form (ngSubmit)='onSubmit()' [formGroup]="form">
+  <div class="form-group">
+    <label for="typePresta">type</label>
+    <input class="form-control" formControlName="typePresta" id="typePresta" type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="client">client</label>
+    <input class="form-control" formControlName="client" id="client" required type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="nbJours">nbJours</label>
+    <input class="form-control" formControlName="nbJours" id="nbJours" type="number">
+  </div>
+
+  <div class="form-group">
+    <label for="tjmHt">tjmHt</label>
+    <input class="form-control" formControlName="tjmHt" id="tjmHt" type="number">
+  </div>
+
+  <div class="form-group">
+    <label for="tva">tva</label>
+    <input class="form-control" formControlName="tva" id="tva" type="number">
+  </div>
+
+  <div class="form-group">
+    <label for="state">state</label>
+    <select class="form-control" formControlName="state" id="state">
+      <!-- itérer dans les énums -->
+      <!-- importer enum dans ts + stocker-->
+      <option *ngFor="let state of states" [value]='state'>{{state}}</option>
+
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">comment</label>
+    <textarea class="form-control" formControlName="comment" id="comment"></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

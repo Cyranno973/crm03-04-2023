@@ -1,38 +1,38 @@
 import {Injectable} from '@angular/core';
 import {Order} from "../../core/modele/order";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environements/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
+  private urlApi = environment.urlApi;
+  private collection$!: Observable<Order[]>;
 
-  collection: any = [
-    {
-      "tjmHt": 1200,
-      "nbJours": 10,
-      "tva": 20,
-      "state": "CANCELLED",
-      "typePresta": "coachingDFGH",
-      "client": "Modis",
-      "comment": "Merci Modis pour les 10k",
-      "id": 1
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "CONFIRMED",
-      "typePresta": "coaching",
-      "client": "M2i",
-      "comment": null,
-      "id": 2
-    }
-  ]
-
-  addOrder(order: Order) {
-    this.collection.push(order);
+  constructor(private http: HttpClient) {
+    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`);
   }
 
-  constructor() {
+  get collection(): Observable<Order[]> {
+    return this.collection$;
   }
+
+  set collection(col: Observable<Order[]>) {
+    this.collection$ = col
+  }
+
+  add(item: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.urlApi}/orders`, item)
+  }
+
+  update(obj: Order): Observable<Order> {
+    return this.http.put<Order>(`${this.urlApi}/orders/${obj.id}`, obj)
+  }
+
+  getItemById(id: number): Observable<Order> {
+    return this.http.get<Order>(`${this.urlApi}/orders/${id}`)
+  }
+
 }
