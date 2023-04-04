@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Order} from "../../core/modele/order";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,10 @@ export class OrdersService {
       "id": 2
     }
   ]
+
+  addOrder(order: Order) {
+    this.collection.push(order);
+  }
 
   constructor() {
   }
