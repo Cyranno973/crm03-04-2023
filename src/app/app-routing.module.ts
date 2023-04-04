@@ -1,21 +1,26 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Routes} from "@angular/router";
-import {PageListOrdersComponent} from "./orders/pages/page-list-orders/page-list-orders.component";
-import {HomeComponent} from "./home/home.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {RouterModule, Routes} from "@angular/router";
 
-export const AppRoutes: Routes = [
-  {path: '', redirectTo: "/home", pathMatch: "full"},
-  {path: 'list-orders', component: PageListOrdersComponent},
-  {path: 'home', component: HomeComponent},
-  {path: '**', component: PageNotFoundComponent},
+// export const AppRoutes: Routes = [
+//   {path: '', redirectTo: "/home", pathMatch: "full"},
+//   {path: 'list-orders', component: PageListOrdersComponent},
+//   {path: 'orders/add', component: PageAddOrderComponent},
+//   {path: 'home', component: HomeComponent},
+//   {path: '**', component: PageNotFoundComponent},
+// ]
+
+const routes: Routes = [
+  {path: '', redirectTo: 'orders', pathMatch: 'full'},
+  {
+    path: '**', loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ]
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes),
   ],
   exports: []
 })
