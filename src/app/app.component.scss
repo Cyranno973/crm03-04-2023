@@ -1,0 +1,35 @@
+.grid-container {
+  background-color: coral;
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 240px 1fr;
+
+  grid-template-areas:
+  "aside header"
+  "aside main"
+  "aside footer";
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background-color: #9f8d83;
+}
+
+.aside {
+  grid-area: aside;
+  background-color: #eac6b1;
+
+}
+
+.main {
+  grid-area: main;
+  background-color: #ffffff;
+
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #9f8d83;
+
+}
