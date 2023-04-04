@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+table {
+  width: 80%;
+
+  th, td {
+    text-align: left;
+    padding: 12px;
+  }
+
+  th {
+    background-color: #4CAF50;
+    color: #ffff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+}
+
+.state-canceled {
+  background: yellow;
+}
+
+.state-option {
+  background: red;
+}
+
+.state-confirmed {
+  background: blue;
+}

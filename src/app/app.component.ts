@@ -8,7 +8,7 @@ import {UserInterface} from "./core/interfaces/userInterface";
 })
 export class AppComponent {
   user: UserInterface = {name: 'john', age: 7, hobbies: ['piano', 'batterie']}
-  valueInput = 'aa';
+  valueInput = 'aaaaaaaaaaa';
   myDate = Date.now();
 
   typeInput = 'text'
