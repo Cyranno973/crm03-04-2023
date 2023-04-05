@@ -1,1 +1,6 @@
-<p>page-edit-order works!</p>
+<div *ngIf="item" class="container">
+  <h1>Editer une commande</h1>
+
+  <app-form-order [init]="item"></app-form-order>
+</div>
+

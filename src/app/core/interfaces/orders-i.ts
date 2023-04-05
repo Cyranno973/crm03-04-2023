@@ -10,3 +10,9 @@ export interface OrdersI {
   "comment": string,
   "id": number
 }
+
+export interface User {
+  name: string,
+  age?: number
+}
+
